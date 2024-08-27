@@ -9,7 +9,11 @@
   <body>
     <nav>
       <ul class="sidebar">
-        <li><a href="#" onClick=closeSidebar()><img src="assets/close-icon.svg" alt="close"></a></li>
+        <li>
+          <a href="#" onClick="closeSidebar()"
+            ><img src="assets/close-icon.svg" alt="close"
+          /></a>
+        </li>
         <li><a href="#Blog">Blog</a></li>
         <li><a href="#Products">Products</a></li>
         <li><a href="#About">About</a></li>
@@ -24,19 +28,34 @@
         <li class="hideOnMobile"><a href="#Forum">Forum</a></li>
         <li class="hideOnMobile"><a href="#Login">Login</a></li>
         <li class="menu-button">
-          <a href="#" onClick=showSidebar()><img src="assets/menu-icon.svg" alt="menu" /></a>
+          <a href="#" onClick="showSidebar()"
+            ><img src="assets/menu-icon.svg" alt="menu"
+          /></a>
         </li>
       </ul>
     </nav>
     <script>
       function showSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.style.display = 'flex'
+        const sidebar = document.querySelector(".sidebar");
+        (sidebar.style.display = "flex"),
+          document.addEventListener("click", closeSidebarOnclickOutside);
       }
 
       function closeSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.style.display = 'none'
+        const sidebar = document.querySelector(".sidebar");
+        sidebar.style.display = "none";
+
+        document.removeEventListener("click", closeSidebarOnclickOutside);
+      }
+
+      function closeSidebarOnclickOutside(event) {
+        const sidebar = document.querySelector(".sidebar");
+        if (
+          !sidebar.contains(event.target) &&
+          !event.target.closest(".menu-button")
+        ) {
+          closeSidebar();
+        }
       }
     </script>
   </body>
