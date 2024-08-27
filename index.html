@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Responsive Navbar</title>
+  </head>
+  <body>
+    <nav>
+      <ul class="sidebar">
+        <li><a href="#" onClick=closeSidebar()><img src="assets/close-icon.svg" alt="close"></a></li>
+        <li><a href="#Blog">Blog</a></li>
+        <li><a href="#Products">Products</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Form">Forum</a></li>
+        <li><a href="#Login">Login</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">WebDev</a></li>
+        <li class="hideOnMobile"><a href="#Blog">Blog</a></li>
+        <li class="hideOnMobile"><a href="#Products">Products</a></li>
+        <li class="hideOnMobile"><a href="#About">About</a></li>
+        <li class="hideOnMobile"><a href="#Forum">Forum</a></li>
+        <li class="hideOnMobile"><a href="#Login">Login</a></li>
+        <li class="menu-button">
+          <a href="#" onClick=showSidebar()><img src="assets/menu-icon.svg" alt="menu" /></a>
+        </li>
+      </ul>
+    </nav>
+    <script>
+      function showSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.display = 'flex'
+      }
+
+      function closeSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.display = 'none'
+      }
+    </script>
+  </body>
+</html>
